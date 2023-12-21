@@ -8,7 +8,7 @@
 - [References](#references)
 - [Authors](#authors)
 
-The report is published at: https://taylornguyen527.github.io/portfolio/Seattle%20Crime%20Analysis/
+The written report is published at: https://taylornguyen527.github.io/portfolio/Seattle%20Crime%20Analysis/
 
 
 ## Requirements
