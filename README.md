@@ -1,6 +1,5 @@
 # Seattle_Crime_Analysis
 
-The report is published at: https://taylornguyen527.github.io/portfolio/Seattle%20Crime%20Analysis/
 
 ## Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -8,6 +7,9 @@ The report is published at: https://taylornguyen527.github.io/portfolio/Seattle%
 - [Dataset](#dataset)
 - [References](#references)
 - [Authors](#authors)
+
+The report is published at: https://taylornguyen527.github.io/portfolio/Seattle%20Crime%20Analysis/
+
 
 ## Requirements
 [(Back to top)](#table-of-contents)  
