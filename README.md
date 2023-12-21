@@ -8,23 +8,22 @@
 - [References](#references)
 - [Authors](#authors)
 
-
 ## Requirements
 [(Back to top)](#table-of-contents)  
+This project utilize Python libraries like Pandas, Numpy for data manipulation, Altair for visualization., Geopanda and Folium for geospatial visualization
 Make sure you have the following Python libraries installed:
 
 ```bash
-pip install pandas altair
+pip install pandas altair 
 ```
 
-## Dataset
+## Dataset:
 [(Back to top)](#table-of-contents)  
-About Dataset
-The analysis utilizes crime data sourced from the Seattle Police Department spanning the years 2008 to 2022, available at https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5. The dataset encompasses a comprehensive array of information crucial for understanding and analyzing criminal activities. Each crime report is uniquely identified by a Report Number, facilitating tracking and reference, while the Offense ID serves as an added unique identifier for individual offenses. The temporal aspects of the offenses are detailed through Offense Start date and end date, providing insights into the duration of events. 
+The analysis relies on crime data acquired from the Seattle Police Department, covering the period from 2008 to 2022. Each crime report is uniquely identified by a Report Number, and are categorized by both specific Offense Types and broader Offense Parent Groups. Notably, due to the granularity of Offense Types, the report opts for Offense Parent Groups to streamline the crime classification.
 
-The dataset obtained from SPD contained longitude and latitude coordinates which doesn’t provide any higher level meaning in terms of geographic crime pattern. These coordinates were transformed into Geometry point objects, then employing a spatial join technique, each point was linked to its respective Census Block using Seattle's 2020 Census Block geometry data.  Leveraging the hierarchical structure of Census Blocks and Tracts within larger areas, the data was further contextualized within Community Reporting Areas (CRAs) in Seattle. CRAs, resembling neighborhood and neighborhood districts, provide a localized community-level perspective, aligning with familiar terminology for Seattle residents. Additionally, Seattle's neighborhoods and neighborhood districts are aligned with census tracts borders, ensuring a non-overlapping dataset for accuracy. Subsequently, a merger with "Selected Demographic and Housing Estimates (DP05)" data for the 2020 population was executed, contributing to a more nuanced analysis of normalization by population or by areas. This integrated approach offers valuable insights into the interplay between crime patterns and demographic factors, enhancing the overall understanding of the socio-economic landscape.
+Each incident is associated with start time, end time, and report time, with a preference for using the reported time for filtering as incidents are considered finalized at that point. Additionally, incidents are geographically tagged with coordinates and various location identifiers such as police precincts, beats, and sectors. To ensure public understanding, the analysis utilizes Community Reporting Areas (CRAs) in Seattle, which delineate neighborhoods and neighborhood districts,providing a more accessible language. These CRAs aggregate smaller zoning areas like Census tracts and blocks, ensuring precise reporting without overlaps. Data from the Census Bureau are pulled in for these smaller area characteristics and geometry.
 
-The rationale behind aggregating points into larger areas is twofold: it provides a summarized view of crime patterns in multi-level while retaining the localization of incidents. Additionally, employing familiar terms caters to the understanding and engagement of our Seattle audience. 
+The incident coordinates undergo transformation into Geometry point objects, facilitating a spatial join technique to determine the larger zoning areas to which each point belongs. Subsequently, a merger is conducted with the "Selected Demographic and Housing Estimates (DP05)" data for the year 2020, incorporating geo spatial population information. The combination of crime patterns with demographic factors provides valuable insights, enriching the understanding of the socio-economic landscape in Seattle.
 
 Seattle Police Department Crime Data: https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5  
 Seattle Demogrphic Data: https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::selected-demographic-and-housing-estimates-dp05/explore  
